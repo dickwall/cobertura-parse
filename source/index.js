@@ -16,7 +16,10 @@ var classesFromPackages = function ( packages )
         {
             pack.classes.forEach( function( c )
             {
-                classes = classes.concat( c.class );
+                if ( c.class )
+                {
+                    classes = classes.concat( c.class );
+                }
             } );
         } );
     } );

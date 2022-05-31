@@ -103,4 +103,22 @@ describe( "parseFile", function ()
             done();
         } );
     } );
+
+    it( "should parse a file without empty classes", function ( done )
+    {
+        parse.parseFile( path.join( __dirname, "assets", "sample5.xml" ), function ( err, result )
+        {
+            console.log('result -->', err, JSON.stringify(result[0]));
+            assert.equal( err, null );
+            assert.equal( result.length, 1);
+            assert.equal( result[ 0 ].functions.found, 2 );
+            assert.equal( result[ 0 ].functions.hit, 2 );
+            assert.equal( result[ 0 ].lines.found, 2 );
+            assert.equal( result[ 0 ].lines.hit, 2 );
+            assert.equal( result[ 0 ].functions.details.length, 2 );
+            assert.equal( result[ 0 ].lines.details.length, 2 );
+            done();
+        } );
+    } );
+
 } );
